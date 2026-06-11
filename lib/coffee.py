@@ -2,16 +2,22 @@
 
 class Coffee:
     def __init__(self, size, price):
-        valid_sizes = ["Small", "Medium", "Large"]
+        self._size = None
+        self.price = price
+        self.size = size  # triggers setter
 
-        if isinstance(size, str) and size.strip().capitalize() in valid_sizes:
-            self.size = size.strip().capitalize()
+    @property
+    def size(self):
+        return self._size
+
+    @size.setter
+    def size(self, value):
+        if value in ["Small", "Medium", "Large"]:
+            self._size = value
         else:
             print("size must be Small, Medium, or Large")
-            self.size = None
-
-        self.price = price
+            self._size = None
 
     def tip(self):
-        print("This coffee is great, here's a tip!")
         self.price += 1
+        print("This coffee is great, here’s a tip!")
