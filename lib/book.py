@@ -4,7 +4,6 @@ class Book:
     def __init__(self, title, page_count):
         self.title = title
 
-        # validate page_count
         if isinstance(page_count, int):
             self.page_count = page_count
         else:
@@ -12,4 +11,4 @@ class Book:
             self.page_count = 0
 
     def turn_page(self):
-        print("Flipping the page...wow, you read fast!")       
+        print("Flipping the page...wow, you read fast!")

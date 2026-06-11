@@ -2,9 +2,10 @@
 
 class Coffee:
     def __init__(self, size, price):
-        # validate size
-        if size in ["Small", "Medium", "Large"]:
-            self.size = size
+        valid_sizes = ["Small", "Medium", "Large"]
+
+        if isinstance(size, str) and size.strip().capitalize() in valid_sizes:
+            self.size = size.strip().capitalize()
         else:
             print("size must be Small, Medium, or Large")
             self.size = None
@@ -12,5 +13,5 @@ class Coffee:
         self.price = price
 
     def tip(self):
-        print("This coffee is great, here’s a tip!")
+        print("This coffee is great, here's a tip!")
         self.price += 1
